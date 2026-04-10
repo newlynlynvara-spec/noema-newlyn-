@@ -37,7 +37,39 @@ body:before{
   100%{transform:translateY(8px) scale(1.02);opacity:.82}
 }
 .container{width:min(1040px,calc(100% - 28px));margin:0 auto}
+
+.hero,
+.section,
+.hero-content,
+.section-head,
+.about-box,
+.service,
+.package,
+.form-box,
+.hero-side{
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.rule,
+.section-rule,
+.btns{
+  justify-content:center;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.hero-side .list,
+.package ul,
+.note{
+  text-align:center;
+  list-style-position:inside;
+}
+
 nav{
+  ...
+  }
   position:sticky; top:0; z-index:20;
   backdrop-filter:blur(10px);
   background:linear-gradient(180deg,rgba(8,6,4,.92),rgba(8,6,4,.42));
