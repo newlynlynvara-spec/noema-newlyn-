@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noema Newlyn — Strategy Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1:#080604; --bg2:#130d09; --bg3:#241a14; --bg4:#6a523d; --bg5:#b89470;
+  --panel:rgba(16,11,8,.72); --panel2:rgba(28,20,15,.86);
+  --gold:#b88958; --gold2:#d8b085; --gold3:#f0dec8;
+  --orange:#d88d58; --text:#d2b392; --muted:#96785f; --white:#f8f1e8;
+  --line:rgba(240,222,200,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Sarabun','Inter',sans-serif;
+  color:var(--text);
+  background:linear-gradient(180deg,var(--bg1) 0%,var(--bg2) 16%,var(--bg3) 40%,var(--bg4) 78%,var(--bg5) 100%);
+  overflow-x:hidden;
+}
+body:before{
+  content:""; position:fixed; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 90% 35% at 50% 8%, rgba(255,230,205,.08) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 25% at 20% 22%, rgba(216,176,133,.08) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 25% at 80% 24%, rgba(184,137,88,.08) 0%, transparent 60%);
+  mix-blend-mode:screen;
+  animation:flow 10s ease-in-out infinite alternate;
+}
+@keyframes flow{
+  0%{transform:translateY(0) scale(1);opacity:.55}
+  100%{transform:translateY(8px) scale(1.02);opacity:.82}
+}
+.container{width:min(1040px,calc(100% - 28px));margin:auto}
+nav{
+  position:sticky; top:0; z-index:20;
+  backdrop-filter:blur(10px);
+  background:linear-gradient(180deg,rgba(8,6,4,.92),rgba(8,6,4,.42));
+  border-bottom:1px solid rgba(240,222,200,.08);
+}
+.nav-inner{
+  min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:16px;
+}
+.brand-title{
+  font-family:'Playfair Display',serif; color:var(--gold2); font-size:1.3rem; letter-spacing:1px;
+}
+.brand-sub{
+  font-family:'Inter',sans-serif; color:var(--orange); font-size:.64rem; letter-spacing:5px; text-transform:uppercase;
+}
+.nav-links{display:flex;gap:18px;flex-wrap:wrap}
+.nav-links a{
+  color:var(--muted); text-decoration:none; font-size:.72rem; letter-spacing:2px; text-transform:uppercase;
+}
+.hero{
+  min-height:100vh; display:flex; align-items:flex-end; padding:56px 0 56px; position:relative;
+}
+.hero:after{
+  content:""; position:absolute; left:-10%; right:-10%; top:40%; height:2px; pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(216,176,133,.08),rgba(184,137,88,.42),rgba(255,232,210,.2),rgba(184,137,88,.12),transparent);
+  transform:rotate(-4deg);
+}
+.hero-grid{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:22px; width:100%;
+}
+.kicker,.section-kicker,.mini{
+  font-family:'Inter',sans-serif; color:var(--orange); text-transform:uppercase; letter-spacing:5px; font-size:.68rem;
+}
+h1{
+  font-family:'Playfair Display',serif; color:var(--white); font-size:clamp(3rem,10vw,6rem); line-height:.96; font-weight:500;
+  margin-top:14px;
+}
+h1 .gold{display:block; color:var(--gold2); font-style:italic}
+.rule,.section-rule{
+  width:62px; height:1px; background:linear-gradient(90deg,var(--gold),var(--orange)); margin:22px 0 24px;
+}
+.hero p.desc{
+  max-width:620px; line-height:1.9; font-size:1.02rem;
+}
+.card{
+  background:linear-gradient(180deg,var(--panel),var(--panel2));
+  border:1px solid var(--line);
+  border-radius:26px;
+  box-shadow:0 18px 50px rgba(0,0,0,.28);
+}
+.hero-side{padding:24px}
+.hero-side h3{
+  font-family:'Playfair Display',serif; color:var(--gold2); font-size:1.7rem; line-height:1.1; margin:12px 0 16px;
+}
+.hero-side .list{display:grid;gap:12px;line-height:1.75}
+.hero-side .list div{display:flex;gap:10px}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{
+  position:relative; display:inline-flex; align-items:center; justify-content:center;
+  min-height:50px; padding:0 22px; border-radius:999px; border:1px solid transparent;
+  text-transform:uppercase; letter-spacing:2px; font-size:.74rem; text-decoration:none;
+  transition:.2s ease; overflow:hidden;
+}
+.btn .compass{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  color:rgba(248,241,232,.14); font-size:24px; opacity:0; transform:scale(.65) rotate(-15deg); transition:.25s ease;
+}
+.btn:hover .compass,.btn:active .compass{opacity:1; transform:scale(1.25) rotate(0)}
+.btn-primary{
+  background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#1b140f;
+}
+.btn-ghost{
+  color:var(--gold3); border-color:rgba(240,222,200,.18); background:rgba(255,255,255,.02);
+}
+.section{padding:74px 0}
+.section-title{
+  font-family:'Playfair Display',serif; color:var(--white); font-size:clamp(2rem,6vw,3.2rem); line-height:1.08; margin:12px 0 14px;
+}
+.section-title em{color:var(--gold2); font-style:italic}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.about-box{padding:26px}
+.about-box p{line-height:1.9;margin-bottom:14px}
+.service{padding:24px; min-height:220px}
+.service h3{
+  font-family:'Playfair Display',serif; color:var(--white); font-size:1.5rem; margin:10px 0 12px;
+}
+.service .num{font-family:'Playfair Display',serif;color:rgba(248,241,232,.08);font-size:2.8rem;float:right}
+.package{padding:24px; margin-bottom:16px}
+.package .tier{color:var(--orange); letter-spacing:4px; text-transform:uppercase; font-size:.68rem; font-family:'Inter',sans-serif}
+.package h3{font-family:'Playfair Display',serif;color:var(--white);font-size:2rem;line-height:1.05;margin:8px 0}
+.package h3 em{display:block;color:var(--gold2);font-style:italic}
+.package ul{margin:14px 0 18px 18px; line-height:1.85}
+.price{font-family:'Playfair Display',serif;color:var(--gold2);font-size:2rem}
+.form-box{padding:24px}
+label{display:block;margin:14px 0 7px;color:var(--orange);font-size:.68rem;letter-spacing:4px;text-transform:uppercase;font-family:'Inter',sans-serif}
+input,textarea,select{
+  width:100%; border:none; outline:none; border-radius:16px; padding:15px 16px;
+  background:rgba(0,0,0,.2); color:var(--text); border:1px solid rgba(240,222,200,.08);
+}
+textarea{min-height:120px; resize:vertical}
+.note{margin-top:14px; line-height:1.8; color:var(--muted); font-size:.94rem}
+.footer{
+  padding:34px 0 54px; border-top:1px solid rgba(240,222,200,.08); color:var(--muted)
+}
+.footer .title{font-family:'Playfair Display',serif;color:var(--gold2);font-size:1.25rem}
+.spark{
+  position:fixed; pointer-events:none; z-index:9999; font-size:18px; opacity:0;
+  transform:translate(-50%,-50%) scale(.6); animation:spark .9s ease-out forwards;
+}
+@keyframes spark{
+  0%{opacity:0;transform:translate(-50%,-50%) scale(.5)}
+  15%{opacity:1}
+  100%{opacity:0;transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(1.15)}
+}
+@media (max-width:820px){
+  .hero-grid,.grid-2{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .btn{width:100%}
+  .btns{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <div>
+      <div class="brand-title">Noema Newlyn</div>
+      <div class="brand-sub">Strategy Consulting</div>
+    </div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#packages">Packages</a>
+      <a href="#payment">Payment</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Noema Newlyn — Strategy Consulting</div>
+      <h1>Clarity in <span class="gold">Strategy.</span></h1>
+      <div class="rule"></div>
+      <p class="desc">
+        ที่ปรึกษาด้าน Business Strategy สำหรับธุรกิจที่ต้องการมองภาพรวมให้ชัด วางตำแหน่งให้แม่น และเปลี่ยนความซับซ้อนให้กลายเป็นทิศทางที่นำไปใช้ได้จริง
+      </p>
+      <div class="btns">
+        <a class="btn btn-primary spark-btn" href="#packages"><span class="compass">🧭</span>View Packages</a>
+        <a class="btn btn-ghost spark-btn" href="#about"><span class="compass">🧭</span>About Me</a>
+      </div>
+    </div>
+
+    <div class="card hero-side">
+      <div class="mini">What I Do For You</div>
+      <h3>Strategy that feels elegant — and works.</h3>
+      <div class="list">
+        <div><span>✦</span><span>ช่วยจัดระเบียบภาพรวมของธุรกิจ ตั้งแต่ vision ไปจนถึง execution</span></div>
+        <div><span>✦</span><span>หาจุดตันใน positioning, offer, messaging และ flow การขาย</span></div>
+        <div><span>✦</span><span>เปลี่ยนความคิดที่กระจัดกระจาย ให้กลายเป็นแผนที่ชัดขึ้น</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-kicker">About</div>
+    <div class="section-title">A more refined way to build <em>business direction</em></div>
+    <div class="section-rule"></div>
+    <div class="grid-2">
+      <div class="card about-box">
+        <p>
+          ฉันช่วยธุรกิจที่กำลังสับสนกับทิศทาง ให้กลับมาเห็นภาพรวมอย่างมีโครงสร้างมากขึ้น ทั้งในด้าน positioning, offer, customer journey และการสื่อสารแบรนด์
+        </p>
+        <p>
+          สิ่งที่คุณจะได้รับไม่ใช่แค่คำแนะนำกว้าง ๆ แต่เป็นมุมมองเชิงกลยุทธ์ที่หยิบไปใช้ต่อได้จริง โดยไม่ทำให้ทุกอย่างซับซ้อนเกินจำเป็น
+        </p>
+      </div>
+      <div class="card about-box">
+        <p>
+          เป้าหมายไม่ใช่เพียงให้ธุรกิจดูดี แต่ให้มันชัด สื่อสารง่าย และเติบโตต่อได้อย่างมีทิศทาง
+        </p>
+        <p>
+          เหมาะสำหรับเจ้าของธุรกิจที่ต้องการวางรากฐานใหม่ ปรับข้อเสนอ หรือจัดภาพรวมให้คมขึ้นก่อนขยายต่อ
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-kicker">Services</div>
+    <div class="section-title">What I can design <em>for your business</em></div>
+    <div class="section-rule"></div>
+    <div class="grid-2">
+      <div class="card service">
+        <div class="num">01</div>
+        <h3>Business Strategy Design</h3>
+        <p>วางแผนกลยุทธ์ธุรกิจแบบองค์รวม ตั้งแต่ภาพใหญ่ของแบรนด์ เป้าหมาย ไปจนถึงแนวทางลงมือทำที่ชัดเจนขึ้น</p>
+      </div>
+      <div class="card service">
+        <div class="num">02</div>
+        <h3>Offer & Positioning</h3>
+        <p>ช่วยดูว่าคุณกำลังขายอะไรให้ใคร และทำอย่างไรให้ข้อเสนอของคุณดูชัด มีน้ำหนัก และสื่อสารได้ตรงขึ้น</p>
+      </div>
+      <div class="card service">
+        <div class="num">03</div>
+        <h3>Customer Journey Review</h3>
+        <p>วิเคราะห์ flow ตั้งแต่คนเห็นคุณครั้งแรก ไปจนถึงการตัดสินใจซื้อ เพื่อหาจุดรั่วและจุดที่ควรยกระดับ</p>
+      </div>
+      <div class="card service">
+        <div class="num">04</div>
+        <h3>Brand Messaging Guide</h3>
+        <p>ช่วยจัดโทนภาษา แนวการสื่อสาร และแก่นข้อความของแบรนด์ ให้คุณพูดอย่างมีทิศทางมากขึ้น</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="packages">
+  <div class="container">
+    <div class="section-kicker">Packages</div>
+    <div class="section-title">Choose the level of <em>strategic depth</em></div>
+    <div class="section-rule"></div>
+
+    <div class="card package">
+      <div class="tier">Tier I</div>
+      <h3>Strategy <em>Blueprint</em></h3>
+      <div class="price">฿990</div>
+      <ul>
+        <li>เหมาะสำหรับจัดความคิดให้เป็นระบบก่อน</li>
+        <li>ทบทวนภาพรวมของธุรกิจและจุดตันหลัก</li>
+        <li>ใช้เป็นฐานสำหรับการวิเคราะห์เชิงลึกต่อ</li>
+      </ul>
+      <a class="btn btn-ghost spark-btn" href="#payment"><span class="compass">🧭</span>Select</a>
+    </div>
+
+    <div class="card package">
+      <div class="tier">Tier II</div>
+      <h3>Strategy <em>Intensive</em></h3>
+      <div class="price">฿4,500</div>
+      <ul>
+        <li>วิเคราะห์ปัญหา จุดอ่อน และโอกาสอย่างเข้มข้นขึ้น</li>
+        <li>เหมาะสำหรับคนที่ต้องการคำแนะนำเฉพาะตัว</li>
+        <li>ครอบคลุม positioning, offer, message และแนวทางแก้</li>
+      </ul>
+      <a class="btn btn-primary spark-btn" href="#payment"><span class="compass">🧭</span>Select</a>
+    </div>
+
+    <div class="card package">
+      <div class="tier">Tier III</div>
+      <h3>Full <em>Partnership</em></h3>
+      <div class="price">Custom</div>
+      <ul>
+        <li>เหมาะสำหรับผู้ที่ต้องการทำงานเชิงกลยุทธ์ระยะยาว</li>
+        <li>ครอบคลุมทั้ง direction, decision-making และ refinement</li>
+        <li>สำหรับธุรกิจที่ต้องการ transformation อย่างเป็นระบบ</li>
+      </ul>
+      <a class="btn btn-ghost spark-btn" href="#payment"><span class="compass">🧭</span>Inquire</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="payment">
+  <div class="container">
+    <div class="section-kicker">Payment</div>
+    <div class="section-title">A simple way to <em>start with me</em></div>
+    <div class="section-rule"></div>
+
+    <div class="grid-2">
+      <div class="card form-box">
+        <label>your name</label>
+        <input type="text" placeholder="ชื่อของคุณ">
+
+        <label>email</label>
+        <input type="email" placeholder="your@email.com">
+
+        <label>selected package</label>
+        <select>
+          <option>Strategy Blueprint</option>
+          <option>Strategy Intensive</option>
+          <option>Full Partnership</option>
+        </select>
+
+        <label>business details</label>
+        <textarea placeholder="ธุรกิจของคุณคืออะไร และกำลังติดตรงไหน"></textarea>
+
+        <div style="margin-top:16px">
+          <a class="btn btn-primary spark-btn" href="#"><span class="compass">🧭</span>Submit Interest</a>
+        </div>
+
+        <div class="note">
+          ตอนใช้งานจริง คุณสามารถเปลี่ยนปุ่มนี้ให้ลิงก์ไป Google Form, LINE, หรือหน้าชำระเงินของคุณได้
+        </div>
+      </div>
+
+      <div class="card form-box">
+        <div class="mini">Payment Option</div>
+        <div class="section-title" style="font-size:2rem;margin-top:10px">QR / Transfer / Private Link</div>
+        <div class="note" style="margin-top:10px">
+          ตรงนี้คุณสามารถใส่ QR Code จริง, เลขบัญชี, หรือปุ่มไปยังลิงก์ชำระเงินภายนอกได้ภายหลัง
+        </div>
+        <div style="margin-top:22px;padding:34px;border:1px dashed rgba(240,222,200,.16);border-radius:20px;text-align:center;font-size:3rem;color:var(--gold2)">
+          ◧
+        </div>
+        <div style="margin-top:18px">
+          <a class="btn btn-ghost spark-btn" href="#top"><span class="compass">🧭</span>Back to Top</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="title">Noema Newlyn</div>
+    <div class="brand-sub" style="margin-top:6px">Strategy Consulting</div>
+    <div style="margin-top:12px">© 2026 Noema Newlyn. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+function sparkAt(x,y){
+  const icons=['🧭','✦','⋆','✧'];
+  const el=document.createElement('div');
+  el.className='spark';
+  el.textContent=icons[Math.floor(Math.random()*icons.length)];
+  el.style.left=x+'px';
+  el.style.top=y+'px';
+  el.style.setProperty('--dx',(Math.random()*80-40)+'px');
+  el.style.setProperty('--dy',(Math.random()*70-35)+'px');
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),900);
+}
+document.querySelectorAll('.spark-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    const r=btn.getBoundingClientRect();
+    for(let i=0;i<4;i++){
+      setTimeout(()=>sparkAt(r.left+r.width/2,r.top+r.height/2),i*70);
+    }
+  });
+});
+</script>
+
+</body>
+      </html>
