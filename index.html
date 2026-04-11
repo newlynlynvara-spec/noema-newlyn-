@@ -249,40 +249,127 @@ textarea{min-height:120px; resize:vertical}
   </div>
 </header>
 
+  #examples .container{
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+#examples .section-head{
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+#examples .section-label{
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #d8a97a;
+  margin-bottom: 10px;
+}
+
+#examples .section-title{
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  line-height: 1.02;
+  color: #ffffff;
+  text-align: center;
+}
+
+#examples .section-title .accent{
+  color: #d8a97a;
+  font-style: italic;
+  display: inline-block;
+  transform: skewX(-8deg);
+  margin-left: 6px;
+}
+
+#examples .section-rule{
+  width: 90px;
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(90deg, rgba(216,169,122,.15), #d8a97a, rgba(216,169,122,.15));
+}
+
+#examples .grid-2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  align-items: stretch;
+}
+
+#examples .example-card{
+  width: 100%;
+  max-width: none;
+  min-height: 100%;
+  padding: 28px 24px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(18,10,7,.88), rgba(30,17,12,.92));
+  border: 1px solid rgba(240,222,200,.12);
+  box-shadow: 0 14px 36px rgba(0,0,0,.18);
+  text-align: center;
+}
+
+#examples .example-card p{
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: #ead6bf;
+}
+
+@media (max-width: 820px){
+  #examples .container{
+    width: min(1180px, calc(100% - 28px));
+  }
+
+  #examples .grid-2{
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  #examples .example-card{
+    padding: 24px 18px;
+  }
+
+  #examples .example-card p{
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+}
 
 <section class="section" id="examples">
-  <div class="container" style="width:100%; max-width:1200px; padding:0 20px;">
+  <div class="container">
 
     <div class="section-head">
-      <div class="section-label" style="color:#d8a97a;">EXAMPLES</div>
+      <div class="section-label">EXAMPLES</div>
       <div class="section-title">
-        <span style="color:#ffffff;">Strategic Direction</span>
-        <span style="color:#d8a97a;">Examples</span>
+        Strategic Direction <span class="accent">Examples</span>
       </div>
       <div class="section-rule"></div>
     </div>
 
-    <div class="grid-2" style="gap:20px;">
-      <div class="card about-box" style="max-width:none;">
+    <div class="grid-2">
+      <div class="example-card">
         <p>
           ธุรกิจมีหลายสินค้า แต่ภาพรวมยังไม่ชัด
           <br><br>
-          จัดโฟกัสใหม่ให้เห็นว่าอะไรคือข้อเสนอหลัก และอะไรควรตัดออกก่อน
+          จัดโฟกัสใหม่ให้เห็นว่าอะไรคือข้อเสนอหลัก
+          และอะไรควรตัดออกก่อน
         </p>
       </div>
 
-      <div class="card about-box" style="max-width:none;">
+      <div class="example-card">
         <p>
           เจ้าของธุรกิจมีไอเดียเยอะ แต่ไม่รู้ควรเริ่มตรงไหน
           <br><br>
-          จัดลำดับความสำคัญ และวางทิศทางให้ตัดสินใจได้ง่ายขึ้น
+          จัดลำดับความสำคัญ และวางทิศทาง
+          ให้ตัดสินใจได้ง่ายขึ้น
         </p>
       </div>
     </div>
 
   </div>
 </section>
-
 
 
 <section class="section" id="packages">
