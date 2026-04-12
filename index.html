@@ -85,7 +85,17 @@ nav{
   color:var(--muted); text-decoration:none; font-size:.72rem; letter-spacing:2px; text-transform:uppercase;
 }
 .hero{
-  min-height:100vh; display:flex; align-items:flex-end; padding:56px 0 56px; position:relative;
+  min-height:80vh;
+  display:flex;
+  padding-top:60px;
+}
+  @media (max-width:768px){
+  .hero{
+    min-height:auto;
+    padding-top:40px;
+    padding-bottom:40px;
+  }
+  }
 }
 .hero:after{
   content:""; position:absolute; left:-10%; right:-10%; top:40%; height:2px; pointer-events:none;
@@ -360,8 +370,7 @@ textarea{min-height:120px; resize:vertical}
         <div><span>✦</span><span>วิเคราะห์โครงสร้างธุรกิจ และหาจุดที่ทำให้การเติบโตชะลอ</span></div>
         <div><span>✦</span><span>ระบุปัญหาหลัก พร้อมแนวทางแก้ไขเชิงกลยุทธ์</span></div>
         <div><span>✦</span><span>สรุปเป็นทิศทางและแผนที่คุณสามารถนำไปตัดสินใจต่อได้</span></div>
-      </div>
-    </div>
+      </ddisplay </div>
   </div>
 </header>
 
