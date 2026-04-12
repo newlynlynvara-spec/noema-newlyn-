@@ -103,7 +103,9 @@ nav{
   transform:rotate(-4deg);
 }
 .hero-grid{
-  display:grid; grid-template-columns:1.1fr .9fr; gap:22px; width:100%;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  align-items:start;
 }
 .kicker,.section-kicker,.mini{
   font-family:'Inter',sans-serif; color:var(--orange); text-transform:uppercase; letter-spacing:5px; font-size:.68rem;
@@ -125,8 +127,12 @@ h1 .gold{display:block; color:var(--gold2); font-style:italic}
   border-radius:26px;
   box-shadow:0 18px 50px rgba(0,0,0,.28);
 }
-.hero-side{padding:24px}
-.hero-side h3{
+.hero-side{
+  padding:24px;
+  height: fit-content;
+  align-self: start;
+  }
+  .hero-side h3{
   font-family:'Playfair Display',serif; color:var(--gold2); font-size:1.7rem; line-height:1.1; margin:12px 0 16px;
 }
 .hero-side .list{display:grid;gap:12px;line-height:1.75}
