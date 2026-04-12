@@ -111,6 +111,12 @@ nav{
 .kicker,.section-kicker,.mini{
   font-family:'Inter',sans-serif; color:var(--orange); text-transform:uppercase; letter-spacing:5px; font-size:.68rem;
 }
+  .mini{
+  font-family: 'Playfair Display', serif;
+  color: #ff8a5b;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  }
 h1{
   font-family:'Playfair Display',serif; color:var(--white); font-size:clamp(3rem,10vw,6rem); line-height:.96; font-weight:500;
   margin-top:14px;
@@ -165,8 +171,15 @@ h1 .gold{display:block; color:var(--gold2); font-style:italic}
   background:linear-gradient(135deg,var(--gold),var(--gold2)); color:#1b140f;
 }
 .btn-ghost{
-  color:var(--gold3); border-color:rgba(240,222,200,.18); background:rgba(255,255,255,.02);
-}
+  color:#fff;
+  border:1px solid rgba(255,255,255,0.35);
+  background:rgba(0,0,0,0.35);
+} 
+  .btn-ghost:hover{
+  background:rgba(255,138,91,0.2);
+  border-color:#ff8a5b;
+  color:#ffb199;
+  }
 .section{
   padding: 40px 0;
   }
@@ -240,7 +253,9 @@ textarea{min-height:120px; resize:vertical}
   box-shadow: 0 10px 30px rgba(0,0,0,.14);
   text-align: center;
 }
-
+.service-highlight small{
+  color: rgba(255,255,255,0.7);
+       }
 .service-package-title{
   font-family:'Playfair Display', serif;
   font-size: clamp(34px, 5vw, 58px);
@@ -341,7 +356,6 @@ textarea{min-height:120px; resize:vertical}
   color: #f5e9dc;
 }
 
-/* ตอน hover จะไล่สีขึ้น */
 .spark-btn:hover{
   background: linear-gradient(
     180deg,
