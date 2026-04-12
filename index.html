@@ -105,7 +105,8 @@ nav{
 .hero-grid{
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 12px;
+  }
 }
 .kicker,.section-kicker,.mini{
   font-family:'Inter',sans-serif; color:var(--orange); text-transform:uppercase; letter-spacing:5px; font-size:.68rem;
@@ -132,6 +133,17 @@ h1 .gold{display:block; color:var(--gold2); font-style:italic}
   height: fit-content;
   align-self: start;
   }
+  .hero{
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 20px;
+  min-height: auto;
+}
+
+.hero p.desc{
+  margin: 0 auto;
+  text-align: center;
+  }
   .hero-side h3{
   font-family:'Playfair Display',serif; color:var(--gold2); font-size:1.7rem; line-height:1.1; margin:12px 0 16px;
 }
@@ -155,8 +167,10 @@ h1 .gold{display:block; color:var(--gold2); font-style:italic}
 .btn-ghost{
   color:var(--gold3); border-color:rgba(240,222,200,.18); background:rgba(255,255,255,.02);
 }
-.section{padding:74px 0}
-.section-title{
+.section{
+  padding: 40px 0;
+  }
+  .section-title{
   font-family:'Playfair Display',serif; color:var(--white); font-size:clamp(2rem,6vw,3.2rem); line-height:1.08; margin:12px 0 14px;
 }
 .section-title em{color:var(--gold2); font-style:italic}
