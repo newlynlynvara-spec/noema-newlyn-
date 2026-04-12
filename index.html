@@ -194,28 +194,58 @@ textarea{min-height:120px; resize:vertical}
   font-size: clamp(14px, 3.5vw, 18px);
          }
 .service-highlight{
-  max-width: 880px;
-  margin: 0 auto;
-  padding: 28px 22px;
-  border: 1px solid rgba(240,222,200,.12);
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(18,10,7,.78), rgba(32,20,14,.9));
-  box-shadow: 0 14px 36px rgba(0,0,0,.18);
+  width: 100%;
+  max-width: 1040px;
+  margin: 28px auto 0;
+  padding: 34px 28px;
+  border: 1px solid rgba(240,222,200,.10);
+  border-radius: 28px;
+  background: linear-gradient(
+    180deg,
+    rgba(18,10,7,.82) 0%,
+    rgba(38,23,16,.68) 45%,
+    rgba(106,80,58,.32) 78%,
+    rgba(182,151,120,.14) 100%
+  );
+  box-shadow: 0 10px 30px rgba(0,0,0,.14);
+  text-align: center;
+}
+
+.service-package-title{
+  font-family:'Playfair Display', serif;
+  font-size: clamp(34px, 5vw, 58px);
+  line-height: .95;
+  color: #f5e9dc;
+  margin-top: 8px;
+}
+
+.service-package-title .gold{
+  color:#d8b085;
+  font-style: italic;
+}
+
+.service-package-price{
+  font-family:'Playfair Display', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  color:#e7c39d;
+  margin-top: 12px;
+  margin-bottom: 28px;
 }
 
 .service-title{
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.12rem;
   font-weight: 600;
   color: #f5e9dc;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .service-section-title{
   margin-top: 24px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #f0d3b1;
   font-weight: 600;
+  font-size: 1rem;
 }
 
 .service-points{
@@ -226,34 +256,38 @@ textarea{min-height:120px; resize:vertical}
   line-height: 1.8;
 }
 
-.service-price-box{
-  margin: 18px 0;
-  padding: 16px;
-  border-radius: 16px;
-  background: rgba(255,255,255,.03);
-  border: 1px solid rgba(255,170,120,.18);
-  text-align: center;
-}
-
-.service-price{
-  color: #ff8a5b;
-  font-size: 1.2rem;
-  font-weight: 700;
-  animation: priceGlow 2s infinite;
-}
-
-@keyframes priceGlow{
-  0%{opacity:1;}
-  50%{opacity:.6;}
-  100%{opacity:1;}
+.service-points li{
+  margin-bottom: 6px;
 }
 
 .service-note{
-  margin-top: 16px;
-  color: rgba(255,255,255,.7);
+  margin-top: 18px;
+  margin-bottom: 24px;
+  color: rgba(255,255,255,.74);
   font-size: .95rem;
+  line-height: 1.7;
+}
+
+.service-cta{
+  margin-top: 28px;
+}
+
+@media (max-width: 768px){
+  .service-highlight{
+    padding: 26px 18px;
+    border-radius: 22px;
   }
 
+  .service-package-title{
+    font-size: clamp(28px, 9vw, 42px);
+  }
+
+  .service-package-price{
+    font-size: clamp(24px, 7vw, 34px);
+  }
+  }
+
+  
 </style>
 </head>
 <body>
@@ -403,9 +437,17 @@ textarea{min-height:120px; resize:vertical}
   </div>
 </section>
 
-  <section class="section" id="service-detail">
-<div class="container">
+<section class="section" id="service-detail">
+  <div class="container">
     <div class="service-highlight">
+
+      <div class="mini">TIER II</div>
+
+      <div class="service-package-title">
+        Strategy<br><span class="gold">Intensive</span>
+      </div>
+
+      <div class="service-package-price">฿20,000</div>
 
       <div class="service-title">รายละเอียดบริการ</div>
 
@@ -414,11 +456,6 @@ textarea{min-height:120px; resize:vertical}
         <li>รู้ว่าปัญหาคืออะไร และควรโฟกัสอะไร</li>
         <li>ตัดสินใจได้ง่ายขึ้น ไม่หลงทาง</li>
       </ul>
-
-      <div class="service-price-box">
-        <div class="service-price-label">ค่าบริการ</div>
-        <div class="service-price">20,000 บาท / โปรเจกต์</div>
-      </div>
 
       <div class="service-section-title">ขอบเขต</div>
       <ul class="service-points">
@@ -431,42 +468,27 @@ textarea{min-height:120px; resize:vertical}
         ไม่รวม: ทำการตลาด / ทำคอนเทนต์ / จัดการระบบแทน
       </div>
 
-      
+      <div class="service-cta">
+        <a class="btn btn-ghost spark-btn"
+           href="https://line.me/ti/p/yourlineid"
+           target="_blank">
+          <span class="compass">🧭</span>
+          Start Consultation
+        </a>
 
-  <a class="btn btn-ghost spark-btn" 
-     href="https://lin.ee/VXMXtTA" 
-     target="_blank"
-     style="
-       display:inline-block;
-       padding:12px 28px;
-       border-radius:999px;
-       border:1px solid rgba(255,255,255,.2);
-       color:#f5e9dc;
-       text-decoration:none;
-       font-size:.95rem;
-       letter-spacing:.5px;
-       transition:all .3s ease;
-     "
-     onmouseover="this.style.background='rgba(255,255,255,.08)'"
-     onmouseout="this.style.background='transparent'"
-  >
-    <span style="margin-right:6px;">🧭</span>
-    Start Consultation
-  </a>
+        <p style="
+          margin-top:10px;
+          font-size:.8rem;
+          opacity:.6;
+          color:#f5e9dc;
+        ">
+          Private chat • No calls required
+        </p>
+      </div>
 
-  <p style="
-    margin-top:10px;
-    font-size:.8rem;
-    opacity:.6;
-    color:#f5e9dc;
-  ">
-    Private chat • No calls required
-  </p>
-
-  </div>
     </div>
   </div>
-  </section>
+          </section>
 
   
 <section class="section" id="CONTACT">
